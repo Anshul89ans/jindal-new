@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jindal Senior Secondary School — Panipat</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #1a56db;
+  --dark-red: #0f2d5a;
+  --light-red: #dbeafe;
+  --white: #FFFFFF;
+  --off-white: #e0f2fe;
+  --cream: #eff6ff;
+  --text: #0f1e3d;
+  --muted: #1e3a5f;
+  --border: rgba(26,86,219,0.12);
+}
+.principal-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00d4ff;
+  margin-right: 15px;
+}
+
+.principal-card {
+  display: flex;
+  align-items: center;
+  background: #0f3460;
+  padding: 12px;
+  border-radius: 15px;
+  margin: 10px 0;
+}
+
+.principal-details {
+  color: white;
+}
+
+.principal-details h4 {
+  margin: 0;
+  color: #00d4ff;
+  font-size: 16px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:#e0f2fe;color:var(--text);overflow-x:hidden;}
+
+/* BG PATTERN */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(26,86,219,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(26,86,219,0.04) 0%, transparent 50%),
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(26,86,219,0.04) 39px,rgba(26,86,219,0.04) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(26,86,219,0.04) 39px,rgba(26,86,219,0.04) 40px);
+  pointer-events:none;z-index:0;
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(224,242,254,0.97);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;height:64px;
+}
+.logo-wrap{display:flex;align-items:center;gap:14px;}
+.logo-crest{
+  width:42px;height:42px;border-radius:50%;
+  border:2px solid var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:13px;font-weight:700;
+  color:var(--red);letter-spacing:-0.5px;
+}
+.logo-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--text);line-height:1.2;}
+.logo-sub{font-size:10px;color:var(--muted);font-weight:300;letter-spacing:0.5px;}
+.nav-links{display:flex;gap:2px;}
+.nav-btn{
+  background:transparent;border:none;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;
+  color:var(--muted);padding:8px 14px;border-radius:8px;cursor:pointer;
+  transition:all 0.2s;position:relative;
+}
+.nav-btn::after{
+  content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%) scaleX(0);
+  width:16px;height:2px;background:var(--red);border-radius:2px;
+  transition:transform 0.25s ease;
+}
+.nav-btn:hover{color:var(--red);}
+.nav-btn:hover::after,.nav-btn.active::after{transform:translateX(-50%) scaleX(1);}
+.nav-btn.active{color:var(--red);font-weight:500;}
+.dropdown{
+  position:relative;
+}
+
+.dropdown-content{
+
+  position:absolute;
+
+  top:110%;
+  left:0;
+
+  min-width:220px;
+
+  background:#ffffff;
+
+  border-radius:18px;
+
+  padding:10px 0;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.08);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transform:
+  translateY(12px);
+
+  transition:
+  opacity 0.3s ease,
+  transform 0.3s ease,
+  visibility 0.3s;
+
+  z-index:9999;
+
+  overflow:hidden;
+}
+
+.dropdown:hover .dropdown-content{
+
+  opacity:1;
+
+  visibility:visible;
+
+  transform:
+  translateY(0);
+
+}
+.dropdown-content a:hover{
+  background:#f8f8f8;
+
+  color:#0369a1;
+}
+/* QUICK BAR */
+.quickbar{
+  background:#bae6fd;border-bottom:1px solid var(--border);
+  display:flex;justify-content:flex-end;gap:10px;padding:8px 3rem;
+}
+.qbtn{
+  background:transparent;border:1px solid var(--border);
+  color:var(--red);font-size:11px;font-family:'DM Sans',sans-serif;
+  padding:5px 16px;border-radius:20px;cursor:pointer;
+  transition:all 0.2s;font-weight:500;letter-spacing:0.3px;
+}
+.qbtn:hover{background:var(--red);color:var(--white);border-color:var(--red);}
+
+/* PAGE */
+.page{display:none;animation:fadeUp 0.4s ease both;}
+.page.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;
+  background:#bae6fd;
+  padding:5rem 3rem 4rem;
+  border-bottom:1px solid var(--border);
+}
+.hero-deco{
+  position:absolute;right:-60px;top:-60px;
+  width:380px;height:380px;border-radius:50%;
+  border:80px solid rgba(26,86,219,0.05);pointer-events:none;
+}
+.hero-deco2{
+  position:absolute;left:-40px;bottom:-80px;
+  width:240px;height:240px;border-radius:50%;
+  border:50px solid rgba(26,86,219,0.04);pointer-events:none;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);margin-bottom:1.25rem;
+}
+.hero-eyebrow span{width:24px;height:1.5px;background:var(--red);display:block;}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:48px;font-weight:700;line-height:1.1;
+  color:var(--text);margin-bottom:1rem;max-width:600px;
+}
+.hero h1 em{color:var(--red);font-style:normal;}
+.hero p{font-size:15px;color:var(--muted);line-height:1.8;max-width:480px;margin-bottom:2rem;font-weight:300;}
+.hero-pills{display:flex;gap:10px;flex-wrap:wrap;}
+.hero-pill{
+  background:var(--light-red);color:var(--dark-red);
+  font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;
+}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);margin-top:3rem;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.hstat{background:#e0f2fe;padding:1.5rem;text-align:center;}
+.hstat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--red);}
+.hstat-lbl{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.3px;font-weight:400;}
+
+/* SECTION */
+.section{padding:3rem;position:relative;z-index:1;}
+.sec-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;}
+.sec-line{width:32px;height:3px;background:var(--red);border-radius:2px;flex-shrink:0;}
+.sec-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--text);}
+.sec-sub{font-size:13px;color:var(--muted);margin-left:auto;font-weight:300;}
+
+/* CARDS */
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;padding:1.5rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(26,86,219,0.08);}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;}
+.card-icon{
+  width:44px;height:44px;background:var(--light-red);border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:12px;
+}
+.card-icon svg{width:22px;height:22px;stroke:var(--red);fill:none;stroke-width:1.8;}
+.card-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px;}
+.card-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+
+/* NEWS */
+.news-card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.news-item{
+  display:flex;gap:16px;padding:14px 20px;
+  border-bottom:1px solid rgba(3,105,161,0.07);
+  transition:background 0.2s;cursor:default;
+}
+.news-item:last-child{border-bottom:none;}
+.news-item:hover{background:rgba(26,86,219,0.02);}
+.news-date-badge{
+  flex-shrink:0;width:48px;text-align:center;
+  background:var(--light-red);border-radius:10px;
+  padding:6px 4px;
+}
+.news-date-day{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--red);line-height:1;}
+.news-date-mon{font-size:9px;color:var(--dark-red);font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px;}
+.news-body{flex:1;}
+.news-text{font-size:13px;line-height:1.6;color:var(--text);}
+.news-tag{display:inline-block;font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--red);margin-bottom:4px;}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:0 3rem;}
+
+/* PRINCIPAL */
+.principal-section{
+  display:flex;gap:3rem;align-items:flex-start;
+  background:var(--white);border:1px solid var(--border);border-radius:20px;
+  padding:2.5rem;
+}
+.principal-left{flex-shrink:0;text-align:center;}
+.principal-avatar{
+  width:110px;height:110px;border-radius:50%;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:32px;font-weight:700;
+  color:var(--white);margin:0 auto 12px;
+  position:relative;
+}
+.principal-avatar::after{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px dashed rgba(26,86,219,0.25);
+}
+.principal-name{font-size:14px;font-weight:500;color:var(--text);}
+.principal-role{font-size:11px;color:var(--red);font-weight:500;margin-top:2px;}
+.principal-qual{font-size:11px;color:var(--muted);margin-top:2px;}
+.principal-quote{
+  font-family:'Playfair Display',serif;
+  font-size:16px;line-height:1.9;color:var(--text);
+  font-style:italic;position:relative;padding-left:1.5rem;
+}
+.principal-quote::before{
+  content:'"';position:absolute;left:0;top:-8px;
+  font-size:48px;color:var(--red);opacity:0.3;font-style:normal;line-height:1;
+}
+.principal-contact{margin-top:1rem;font-size:12px;color:var(--muted);}
+.principal-contact a{color:var(--red);text-decoration:none;}
+
+/* FACULTY */
+.fac-card{
+  background:var(--white);border:1px solid var(--border);border-radius:16px;
+  padding:1.25rem;display:flex;flex-direction:column;gap:10px;
+  transition:all 0.2s;
+}
+.fac-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,86,219,0.08);}
+.fac-top{display:flex;align-items:center;gap:12px;}
+.fac-avatar{
+  width:46px;height:46px;border-radius:50%;background:var(--light-red);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:var(--red);flex-shrink:0;
+}
+.fac-name{font-size:14px;font-weight:500;color:var(--text);}
+.fac-role{font-size:11px;color:var(--red);font-weight:500;margin-top:1px;}
+.fac-qual{
+  font-size:11px;color:var(--muted);background:var(--cream);
+  padding:4px 10px;border-radius:20px;display:inline-block;
+}
+.fac-exp{font-size:11px;color:var(--muted);}
+.fac-mail{font-size:11px;color:var(--red);}
+
+/* TAB PILLS */
+.tab-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.5rem;}
+.tab-pill{
+  background:var(--white);border:1px solid var(--border);
+  color:var(--muted);font-size:12px;font-weight:500;padding:7px 16px;
+  border-radius:20px;cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all 0.2s;
+}
+.tab-pill:hover,.tab-pill.active{background:var(--red);color:var(--white);border-color:var(--red);}
+
+/* FEE TABLE */
+.fee-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;}
+.fee-table thead tr{background:var(--red);}
+.fee-table th{padding:12px 16px;text-align:left;font-weight:500;color:var(--white);font-size:12px;letter-spacing:0.3px;}
+.fee-table th:first-child{border-radius:12px 0 0 0;}
+.fee-table th:last-child{border-radius:0 12px 0 0;}
+.fee-table td{padding:11px 16px;border-bottom:1px solid rgba(3,105,161,0.07);color:var(--text);}
+.fee-table tr:last-child td{border-bottom:none;}
+.fee-table tr:nth-child(even) td{background:rgba(26,86,219,0.02);}
+.fee-wrap{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.fee-note{font-size:12px;color:var(--muted);margin-top:12px;background:var(--cream);border-radius:10px;padding:10px 14px;line-height:1.6;}
+
+/* ADMISSIONS STEPS */
+.steps-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:2rem;}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;position:relative;}
+.step-card::after{content:'→';position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-size:16px;color:rgba(26,86,219,0.25);z-index:2;}
+.step-card:last-child::after{display:none;}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--red);color:var(--white);font-family:'Playfair Display',serif;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+.step-title{font-size:13px;font-weight:500;color:var(--text);}
+.step-desc{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5;}
+
+/* FORM */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-label{font-size:11px;color:var(--red);font-weight:500;letter-spacing:0.5px;text-transform:uppercase;}
+.form-input{
+  font-family:'DM Sans',sans-serif;font-size:13px;
+  border:1px solid var(--border);border-radius:10px;
+  padding:10px 14px;background:var(--white);color:var(--text);
+  transition:border 0.2s;outline:none;
+}
+.form-input:focus{border-color:var(--red);}
+.form-textarea{min-height:90px;resize:vertical;}
+.submit-btn{
+  background:var(--red);color:var(--white);
+  border:none;border-radius:10px;padding:12px 28px;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;
+  cursor:pointer;transition:all 0.2s;
+}
+.submit-btn:hover{background:var(--dark-red);}
+.success-toast{
+  display:none;background:#EAF3DE;color:#27500A;
+  border-radius:10px;padding:12px 16px;font-size:13px;margin-top:12px;
+  border:1px solid rgba(99,153,34,0.2);
+}
+
+/* CONTACT */
+.cinfo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:2rem;}
+.cinfo{
+  background:var(--white);border:1px solid var(--border);border-radius:16px;
+  padding:1.25rem;text-align:center;
+  transition:transform 0.2s;
+}
+.cinfo:hover{transform:translateY(-2px);}
+.cinfo-icon{font-size:26px;color:var(--red);margin-bottom:8px;}
+.cinfo-label{font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:4px;}
+.cinfo-val{font-size:12px;color:var(--muted);line-height:1.6;}
+
+/* EVENTS */
+.event-row{
+  background:var(--white);border:1px solid var(--border);border-radius:14px;
+  padding:1rem 1.25rem;display:flex;gap:16px;align-items:center;
+  transition:all 0.2s;margin-bottom:10px;
+}
+.event-row:hover{border-color:rgba(26,86,219,0.25);transform:translateX(4px);}
+.event-date{
+  background:var(--red);color:var(--white);border-radius:10px;
+  padding:8px 12px;text-align:center;flex-shrink:0;min-width:50px;
+}
+.event-day{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;line-height:1;}
+.event-mon{font-size:9px;letter-spacing:0.5px;text-transform:uppercase;opacity:0.85;margin-top:2px;}
+.event-title{font-size:13px;font-weight:500;color:var(--text);}
+.event-desc{font-size:12px;color:var(--muted);margin-top:2px;}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.gallery-cell{
+  background:var(--light-red);border:1px solid rgba(26,86,219,0.12);border-radius:14px;
+  height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  cursor:pointer;transition:all 0.2s;
+}
+.gallery-cell:hover{background:var(--red);transform:scale(1.02);}
+.gallery-cell:hover .gallery-icon{color:var(--white);}
+.gallery-cell:hover .gallery-label{color:rgba(255,255,255,0.9);}
+.gallery-icon{font-size:26px;color:var(--red);}
+.gallery-label{font-size:11px;color:var(--dark-red);font-weight:500;}
+
+/* VISION CARDS */
+.vision-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.vision-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:2rem;}
+.vision-icon-row{display:flex;align-items:center;gap:12px;margin-bottom:1rem;}
+.vision-icon{width:40px;height:40px;background:var(--light-red);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--red);}
+.vision-label{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--text);}
+.vision-text{font-size:13px;color:var(--muted);line-height:1.8;}
+
+/* FOOTER */
+footer{background:var(--red);color:rgba(255,255,255,0.75);text-align:center;padding:1.5rem 3rem;font-size:12px;line-height:1.8;margin-top:3rem;position:relative;z-index:1;}
+footer strong{color:var(--white);}
+
+/* DEPT DIR TABLE */
+.dir-table{width:100%;border-collapse:collapse;font-size:13px;}
+.dir-table th{font-size:11px;font-weight:500;color:var(--red);letter-spacing:0.5px;text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--border);text-align:left;}
+.dir-table td{padding:10px 12px;border-bottom:1px solid rgba(26,86,219,0.06);color:var(--text);}
+.dir-table tr:last-child td{border-bottom:none;}
+.dir-table tr:hover td{background:rgba(26,86,219,0.02);}
+
+/* DOCS GRID */
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.doc-item{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--white);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--text);}
+.doc-check{width:18px;height:18px;border-radius:50%;background:var(--light-red);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;color:var(--red);}
+.dropdown-content a{
+
+  display:block;
+
+  width:100%;
+
+  padding:12px 18px;
+
+  color:#1e293b;
+
+  text-decoration:none;
+
+  font-size:14px;
+
+  transition:0.25s ease;
+
+  white-space:nowrap;
+}
+
+.dropdown-content a:hover{
+
+  background:#f8fafc;
+
+  color:#0369a1;
+
+  padding-left:24px;
+}
+
+.dropdown-content a + a{
+
+  border-top:
+  1px solid rgba(0,0,0,0.05);
+}
+
+@media(max-width:768px){
+
+  nav{
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    height:auto;
+
+    padding:18px;
+  }
+
+  .nav-links{
+    flex-direction:column;
+
+    width:100%;
+
+    gap:8px;
+
+    margin-top:14px;
+  }
+
+  .dropdown{
+    width:100%;
+  }
+
+  .nav-btn{
+    width:100%;
+transition:0.3s ease;
+
+    text-align:left;
+  }
+
+  .dropdown-content{
+
+  position:absolute;
+
+  top:110%;
+  left:0;
+
+  min-width:220px;
+
+  background:#ffffff;
+
+  border-radius:18px;
+
+  padding:10px 0;
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,0.08);
+
+  opacity:0;
+
+  visibility:hidden;
+
+  transform:
+  translateY(12px);
+
+  transition:
+  opacity 0.3s ease,
+  transform 0.3s ease,
+  visibility 0.3s;
+
+  z-index:9999;
+
+  overflow:hidden;
+}
+
+  .dropdown:hover .dropdown-content{
+
+  opacity:1;
+
+  visibility:visible;
+
+  transform:
+  translateY(0);
+
+
+}
+/* ── FLOATING CONTACT BUTTONS ── */
+.floating-contact{
+  position:fixed;
+  right:0;
+  bottom:80px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:99999;
+}
+.float-btn-wrap{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+.float-label{
+  position:absolute;
+  right:68px;
+  background:rgba(10,20,50,0.88);
+  color:#fff;
+  font-size:12px;
+  font-family:'DM Sans',sans-serif;
+  font-weight:500;
+  padding:6px 14px;
+  border-radius:20px;
+  white-space:nowrap;
+  opacity:0;
+  transform:translateX(8px);
+  transition:all 0.25s ease;
+  pointer-events:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+.float-label::after{
+  content:'';
+  position:absolute;
+  right:-6px;top:50%;
+  transform:translateY(-50%);
+  border:6px solid transparent;
+  border-left-color:rgba(10,20,50,0.88);
+  border-right:none;
+}
+.float-btn-wrap:hover .float-label{
+  opacity:1;
+  transform:translateX(0);
+}
+.float-icon{
+  width:56px;
+  height:56px;
+  border-radius:50% 0 0 50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:26px;
+  text-decoration:none;
+  transition:transform 0.25s ease, width 0.25s ease, box-shadow 0.25s ease;
+  flex-shrink:0;
+}
+.float-icon:hover{
+  width:64px;
+  border-radius:50% 0 0 50%;
+}
+.float-icon svg{
+  width:28px;height:28px;fill:#fff;flex-shrink:0;
+}
+.whatsapp{
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  box-shadow:-4px 4px 16px rgba(37,211,102,0.45);
+  animation:pulseGreen 2.2s infinite;
+}
+.call{
+  background:linear-gradient(135deg,#2563eb,#0f2d5a);
+  box-shadow:-4px 4px 16px rgba(37,99,235,0.45);
+  animation:pulseBlue 2.2s infinite;
+}
+@keyframes pulseGreen{
+  0%  {box-shadow:-4px 4px 16px rgba(37,211,102,0.45),0 0 0 0 rgba(37,211,102,0.4);}
+  70% {box-shadow:-4px 4px 16px rgba(37,211,102,0.45),0 0 0 14px rgba(37,211,102,0);}
+  100%{box-shadow:-4px 4px 16px rgba(37,211,102,0.45),0 0 0 0 rgba(37,211,102,0);}
+}
+@keyframes pulseBlue{
+  0%  {box-shadow:-4px 4px 16px rgba(37,99,235,0.45),0 0 0 0 rgba(37,99,235,0.4);}
+  70% {box-shadow:-4px 4px 16px rgba(37,99,235,0.45),0 0 0 14px rgba(37,99,235,0);}
+  100%{box-shadow:-4px 4px 16px rgba(37,99,235,0.45),0 0 0 0 rgba(37,99,235,0);}
+}
+
+@keyframes pulse{.apply{
+  background:#1e3a5f;
+}
+
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(0,0,0,0.3);
+  }
+
+  70%{
+    transform:scale(1.08);
+    box-shadow:0 0 0 16px rgba(0,0,0,0);
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:0 0 0 0 rgba(0,0,0,0);
+  }
+}
+</style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-crest">JSSS</div>
+    <div>
+      <div class="logo-name">Jindal Senior Secondary School</div>
+      <div class="logo-sub">PANIPAT, HARYANA &nbsp;·&nbsp; CBSE AFFILIATED &nbsp;·&nbsp; EST. 1985</div>
+    </div>
+  </div>
+  <div class="nav-links">
+
+  <div class="dropdown">
+    <button class="nav-btn active" onclick="showPage('home',this)">
+      Home
+    </button>
+
+    <div class="dropdown-content">
+      <a href="#">Welcome</a>
+      <a href="#">Highlights</a>
+      <a href="#">News</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="nav-btn" onclick="showPage('about',this)">
+      About
+    </button>
+
+    <div class="dropdown-content">
+    <a href="#"
+onclick="showPage('mission')">
+Mission
+
+</a>
+      <a href="#"
+onclick="showPage('vision')">
+Vision
+</a>
+      <a href="#"
+onclick="showPage('principal')">
+Principal
+</a>
+</div>
+</div>
+  <div class="dropdown">
+    <button class="nav-btn" onclick="showPage('faculty',this)">
+      Faculty
+    </button>
+
+    <div class="dropdown-content">
+      <a href="#">Science</a>
+      <a href="#">Commerce</a>
+      <a href="#">Primary</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="nav-btn" onclick="showPage('admissions',this)">
+      Admissions
+    </button>
+
+    <div class="dropdown-content">
+      <a href="#">Documents</a>
+      <a href="#">Process</a>
+      <a href="#">Apply</a>
+    </div>
+  </div>
+  <button class="nav-btn"
+onclick="showPage('fees',this)">
+  Fee Structure
+</button>
+
+  <div class="dropdown">
+    <button class="nav-btn" onclick="showPage('contact',this)">
+      Contact
+    </button>
+
+    <div class="dropdown-content">
+      <a href="#">Phone</a>
+      <a href="#">Email</a>
+      <a href="#">Location</a>
+    </div>
+  </div>
+
+</div>
+</nav>
+<div class="quickbar">
+  <button class="qbtn" onclick="showPage('admissions',document.querySelectorAll('.nav-btn')[3])">&#x2197; Apply now</button>
+  <button class="qbtn" onclick="showPage('contact',document.querySelectorAll('.nav-btn')[5])">&#x2197; Contact us</button>
+  <button class="qbtn" onclick="showPage('about',document.querySelectorAll('.nav-btn')[1]);setTimeout(()=>document.getElementById('cal-sec').scrollIntoView({behavior:'smooth'}),350)">&#x2197; Academic calendar</button>
+</div>
+
+<!-- ========== HOME ========== -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-deco2"></div>
+    <div class="hero-eyebrow"><span></span>Panipat's premier institution since 1985</div>
+    <h1>Shaping minds,<br>building <em>character.</em></h1>
+    <p>Jindal Senior Secondary School offers world-class CBSE education in a nurturing, co-educational environment. We go beyond textbooks — we build futures.</p>
+    <div class="hero-pills">
+      <span class="hero-pill">&#10003; CBSE Affiliated</span>
+      <span class="hero-pill">&#10003; Co-educational</span>
+      <span class="hero-pill">&#10003; Classes Nursery – XII</span>
+      <span class="hero-pill">&#10003; 38+ Years of Excellence</span>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-num" data-target="38">0</div><div class="hstat-lbl">Years of excellence</div></div>
+    <div class="hstat"><div class="hstat-num" data-target="2500">0</div><div class="hstat-lbl">Students enrolled</div></div>
+    <div class="hstat"><div class="hstat-num" data-target="120">0</div><div class="hstat-lbl">Faculty members</div></div>
+    <div class="hstat"><div class="hstat-num" data-suffix="%" data-target="95">0</div><div class="hstat-lbl">Board pass rate</div></div>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Latest news & notices</div></div>
+    <div class="news-card">
+      <div class="news-item">
+        <div class="news-date-badge"><div class="news-date-day">15</div><div class="news-date-mon">May</div></div>
+        <div class="news-body"><div class="news-tag">Sports</div><div class="news-text">Annual Sports Day 2026 — registration open for all students from Class I to XII. Events include athletics, cricket, football and more.</div></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date-badge"><div class="news-date-day">10</div><div class="news-date-mon">May</div></div>
+        <div class="news-body"><div class="news-tag">Results</div><div class="news-text">CBSE Class X & XII results declared — Jindal School achieves an outstanding 97.4% pass percentage with 23 distinctions.</div></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date-badge"><div class="news-date-day">02</div><div class="news-date-mon">May</div></div>
+        <div class="news-body"><div class="news-tag">Admissions</div><div class="news-text">Admissions open for academic session 2026–27. Apply online or visit the school office. Limited seats available — apply early.</div></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date-badge"><div class="news-date-day">28</div><div class="news-date-mon">Apr</div></div>
+        <div class="news-body"><div class="news-tag">Achievement</div><div class="news-text">Science Exhibition winners announced — Jindal School bags 3 state-level awards in Physics and Environmental Science categories.</div></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date-badge"><div class="news-date-day">20</div><div class="news-date-mon">Apr</div></div>
+        <div class="news-body"><div class="news-tag">Events</div><div class="news-text">Parent-Teacher Meeting scheduled for 25 May 2026 for Classes VI to X, 9 AM to 1 PM. Attendance is mandatory.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Our facilities</div><span class="sec-sub">World-class infrastructure</span></div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18"/></svg>
+        </div>
+        <div class="card-title">Science laboratories</div>
+        <div class="card-desc">Separate labs for Physics, Chemistry, and Biology — fully equipped with modern instruments.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="card-title">Computer lab</div>
+        <div class="card-desc">80+ high-performance systems with fiber-optic internet, used from Class III onwards.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        </div>
+        <div class="card-title">Library</div>
+        <div class="card-desc">Over 10,000 books, journals, and e-resources across all subjects and disciplines.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="card-title">Smart classrooms</div>
+        <div class="card-desc">Interactive smartboards and digital learning tools in every classroom.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 17l9-13 9 13H3z"/></svg>
+        </div>
+        <div class="card-title">Sports ground</div>
+        <div class="card-desc">Full-size cricket ground, football field, and athletics track for competitive sports.</div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="card-title">Safe hostel</div>
+        <div class="card-desc">Separate, secure hostels for boys and girls with CCTV, wardens, and nutritious meals.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Gallery highlights</div></div>
+    <div class="gallery-grid">
+      <div class="gallery-cell"><div class="gallery-icon">&#x1F3C6;</div><div class="gallery-label">Annual Day 2025</div></div>
+      <div class="gallery-cell"><div class="gallery-icon">&#x1F3C5;</div><div class="gallery-label">Sports Meet</div></div>
+      <div class="gallery-cell"><div class="gallery-icon">&#x1F4A1;</div><div class="gallery-label">Science Expo</div></div>
+      <div class="gallery-cell"><div class="gallery-icon">&#x1F3B6;</div><div class="gallery-label">Cultural Fest</div></div>
+      <div class="gallery-cell"><div class="gallery-icon">&#x1F3A8;</div><div class="gallery-label">Art Exhibition</div></div>
+      <div class="gallery-cell"><div class="gallery-icon">&#x1F4DC;</div><div class="gallery-label">Prize Distribution</div></div>
+    </div>
+  </div>
+
+  <footer><strong>Jindal Senior Secondary School</strong> &nbsp;·&nbsp; GT Road, Near Bus Stand, Panipat, Haryana 132103<br>info@jindalschoolpanipat.edu.in &nbsp;·&nbsp; +91-180-2647XXX &nbsp;·&nbsp; Mon–Sat: 8 AM – 3 PM</footer>
+</div>
+
+<!-- ========== ABOUT ========== -->
+<div id="page-about" class="page">
+  <div class="hero" style="padding:3.5rem 3rem 3rem;">
+    <div class="hero-deco"></div>
+    <div class="hero-eyebrow"><span></span>Our story</div>
+    <h1 style="font-size:38px;">About <em>Jindal School</em></h1>
+    <p>Building tomorrow's leaders since 1985, rooted in values and driven by excellence.</p>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Principal's message</div></div>
+    <div class="principal-section">
+      <div class="principal-left">
+        <div class="principal-avatar">RK</div>
+        <div class="principal-name">Dr. Rajesh Kumar</div>
+        <div class="principal-role">Principal</div>
+        <div class="principal-qual">M.Ed, Ph.D (Education)</div>
+        <div style="margin-top:8px;font-size:11px;color:var(--muted);">28 years experience</div>
+      </div>
+      <div style="flex:1;">
+        <p class="principal-quote">
+          At Jindal Senior Secondary School, we believe education is not merely the acquisition of knowledge, but the development of character, curiosity, and compassion. Every child who walks through our doors carries infinite potential. Our dedicated faculty, modern infrastructure, and value-based curriculum work in harmony to help each student discover their unique strengths. We are committed to academic excellence while nurturing the whole child — intellectually, physically, and emotionally. Together, let us build a generation that is not only successful, but also responsible and kind.
+        </p>
+        <div class="principal-contact" style="margin-top:1.5rem;">
+          ✉ <a href="mailto:principal@jindalschoolpanipat.edu.in">principal@jindalschoolpanipat.edu.in</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          &#9742; +91-180-2647XXX (Ext. 101)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Vision & mission</div></div>
+    <div class="vision-grid">
+      <div class="vision-card">
+        <div class="vision-icon-row">
+          <div class="vision-icon">&#x1F441;</div>
+          <div class="vision-label">Our Vision</div>
+        </div>
+        <div class="vision-text">To be a centre of excellence that empowers students to become confident, compassionate, and globally aware citizens — ready to lead in a rapidly changing world.</div>
+      </div>
+      <div class="vision-card">
+        <div class="vision-icon-row">
+          <div class="vision-icon">&#x1F3AF;</div>
+          <div class="vision-label">Our Mission</div>
+        </div>
+        <div class="vision-text">To provide holistic education through innovative teaching, strong character building, and equal opportunities — ensuring every student achieves their full potential.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section" id="cal-sec">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Academic calendar 2026–27</div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">01</div><div class="event-mon">Apr</div></div><div><div class="event-title">New academic session begins</div><div class="event-desc">Classes Nursery to XII resume — all students report with complete uniform and books.</div></div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">15</div><div class="event-mon">Apr</div></div><div><div class="event-title">Unit test — I</div><div class="event-desc">Classes VI to XII, all subjects. Time-table to be shared a week prior.</div></div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">25</div><div class="event-mon">May</div></div><div><div class="event-title">Parent-teacher meeting</div><div class="event-desc">Classes VI to X, 9 AM – 1 PM. Individual report cards distributed.</div></div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">01</div><div class="event-mon">Jun</div></div><div><div class="event-title">Summer vacation begins</div><div class="event-desc">School reopens 1 July 2026. Hostel students to vacate by 31 May.</div></div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">15</div><div class="event-mon">Aug</div></div><div><div class="event-title">Independence Day celebration</div><div class="event-desc">Flag hoisting, parade, and cultural programme — 8 AM. Attendance mandatory.</div></div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">Oct</div><div class="event-mon">2026</div></div><div><div class="event-title">Half-yearly examinations</div><div class="event-desc">Classes I to XII. Detailed schedule released in September.</div></div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">Nov</div><div class="event-mon">2026</div></div><div><div class="event-title">Annual sports day</div><div class="event-desc">Inter-house sports competition and prize distribution ceremony.</div></div></div>
+    <div class="event-row"><div class="event-date"><div class="event-day">Dec</div><div class="event-mon">2026</div></div><div><div class="event-title">Annual cultural fest & prize day</div><div class="event-desc">Science expo, art show, cultural performances, and annual prize distribution.</div></div></div>
+  </div>
+  <footer><strong>Jindal Senior Secondary School</strong> &nbsp;·&nbsp; GT Road, Panipat, Haryana 132103 &nbsp;·&nbsp; info@jindalschoolpanipat.edu.in</footer>
+</div> 
+<!-- ========== MISSION ========== -->
+
+<div id="page-mission" class="page">
+
+  <div class="hero">
+
+    <div class="hero-deco"></div>
+
+    <div class="hero-eyebrow">
+      <span></span>
+      Our Purpose
+    </div>
+
+    <h1>
+      Our <em>Mission</em>
+    </h1>
+
+    <p>
+   Shaping Future Leaders Through Excellence in Education, Character, and Values, we empower students to develop critical thinking, embrace lifelong learning, build confidence, and become responsible individuals who contribute positively to society.
+
+    </p>
+
+  </div>
+
+  <div class="section">
+
+    <div class="card">
+
+      <div class="sec-title">
+        School Mission
+      </div>
+
+      <br>
+
+      <p class="vision-text">
+
+        Our mission is to deliver exceptional education through a structured, supportive, and student-centered learning environment. We are dedicated to fostering academic excellence, critical thinking, leadership, and integrity while equipping students with the knowledge, skills, and values required to succeed in a dynamic world and contribute meaningfully to society.
+
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+<div id="page-vision" class="page">
+
+  <div class="hero">
+
+    <div class="hero-deco"></div>
+
+    <div class="hero-eyebrow">
+      <span></span>
+      Our Future
+    </div>
+
+    <h1>
+      Our <em>Vision</em>
+    </h1>
+
+    <p>
+      Creating future-ready leaders
+      with strong ethics and global
+      perspective.
+    </p>
+
+  </div>
+
+  <div class="section">
+
+    <div class="card">
+
+      <div class="sec-title">
+        School Vision
+      </div>
+
+      <br>
+
+      <p class="vision-text">
+
+        We envision becoming a
+        leading institution where
+        every child discovers their
+        highest potential through
+        innovation and discipline.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+<div id="page-principal" class="page">
+
+  <div class="hero">
+
+    <div class="hero-deco"></div>
+
+    <div class="hero-eyebrow">
+      <span></span>
+      Leadership
+    </div>
+
+    <h1>
+      Principal's <em>Message</em>
+    </h1>
+
+    <p>
+      A message from our respected
+      principal.
+    </p>
+
+  </div>
+
+  <div class="section">
+
+    <div class="principal-section">
+
+      <div class="principal-left">
+
+        <div class="principal-avatar">
+          RK
+        </div>
+
+        <div class="principal-name">
+          Dr. Rajesh Kumar
+        </div>
+
+      </div>
+
+      <div style="flex:1;">
+
+        <p class="principal-quote">
+
+          Education is not just about
+          marks, but building strong
+          values, discipline and
+          confidence for life.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ========== FACULTY ========== -->
+<div id="page-faculty" class="page">
+  <div class="hero" style="padding:3.5rem 3rem 3rem;">
+    <div class="hero-deco"></div>
+    <div class="hero-eyebrow"><span></span>The people behind the excellence</div>
+    <h1 style="font-size:38px;">Our <em>Teaching Faculty</em></h1>
+    <p>Experienced, qualified, and passionate educators committed to every student's growth.</p>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Administration</div></div>
+    <div class="card-grid" style="grid-template-columns:repeat(2,1fr);margin-bottom:2rem;">
+      <div class="fac-card" style="flex-direction:row;align-items:flex-start;gap:1.25rem;">
+        <div>
+          <div class="fac-avatar" style="width:60px;height:60px;font-size:20px;background:var(--red);color:var(--white);">RK</div>
+        </div>
+        <div style="flex:1;">
+          <div class="fac-name" style="font-size:15px;">Dr. Rajesh Kumar</div>
+          <div class="fac-role">Principal</div>
+          <div style="margin-top:8px;"><span class="fac-qual">M.Ed, Ph.D (Education)</span></div>
+          <div class="fac-exp" style="margin-top:6px;">28 years experience</div>
+          <div class="fac-mail" style="margin-top:4px;">principal@jindalschoolpanipat.edu.in &nbsp;|&nbsp; Ext. 101</div>
+        </div>
+      </div>
+      <div class="fac-card" style="flex-direction:row;align-items:flex-start;gap:1.25rem;">
+        <div>
+          <div class="fac-avatar" style="width:60px;height:60px;font-size:20px;background:var(--dark-red);color:var(--white);">SS</div>
+        </div>
+        <div style="flex:1;">
+          <div class="fac-name" style="font-size:15px;">Mrs. Sunita Sharma</div>
+          <div class="fac-role">Vice Principal</div>
+          <div style="margin-top:8px;"><span class="fac-qual">M.A (English), B.Ed</span></div>
+          <div class="fac-exp" style="margin-top:6px;">22 years experience</div>
+          <div class="fac-mail" style="margin-top:4px;">vp@jindalschoolpanipat.edu.in &nbsp;|&nbsp; Ext. 102</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-row" id="dept-tabs">
+      <button class="tab-pill active" onclick="filterDept('all',this)">All departments</button>
+      <button class="tab-pill" onclick="filterDept('science',this)">Science</button>
+      <button class="tab-pill" onclick="filterDept('maths',this)">Mathematics</button>
+      <button class="tab-pill" onclick="filterDept('arts',this)">Arts & humanities</button>
+      <button class="tab-pill" onclick="filterDept('commerce',this)">Commerce</button>
+      <button class="tab-pill" onclick="filterDept('primary',this)">Primary</button>
+    </div>
+    <div id="faculty-grid" class="card-grid"></div>
+  </div>
+  <footer><strong>Faculty appointments:</strong> +91-180-2647XXX (Ext. 110) &nbsp;·&nbsp; academics@jindalschoolpanipat.edu.in</footer>
+</div>
+
+<!-- ========== ADMISSIONS ========== -->
+<div id="page-admissions" class="page">
+  <div class="hero" style="padding:3.5rem 3rem 3rem;">
+    <div class="hero-deco"></div>
+    <div class="hero-eyebrow"><span></span>Session 2026–27</div>
+    <h1 style="font-size:38px;">Admissions <em>Now Open</em></h1>
+    <p>Secure your child's place in Panipat's most trusted school. Limited seats — apply early.</p>
+  </div>
+
+  <div class="section">
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">How to apply</div></div>
+    <div class="steps-row">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Fill the form</div><div class="step-desc">Online below or visit our school office in person</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Submit documents</div><div class="step-desc">Marksheets, certificates, and ID proofs</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Entrance test</div><div class="step-desc">Required for Classes IV and above</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Confirmation</div><div class="step-desc">Pay fees and collect your admit card</div></div>
+    </div>
+
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Documents required</div></div>
+    <div class="doc-grid" style="margin-bottom:2rem;">
+      <div class="doc-item"><div class="doc-check">&#10003;</div>Birth certificate</div>
+      <div class="doc-item"><div class="doc-check">&#10003;</div>Previous class marksheet</div>
+      <div class="doc-item"><div class="doc-check">&#10003;</div>Transfer certificate (TC)</div>
+      <div class="doc-item"><div class="doc-check">&#10003;</div>Aadhar card (student)</div>
+      <div class="doc-item"><div class="doc-check">&#10003;</div>Passport size photos (4 copies)</div>
+      <div class="doc-item"><div class="doc-check">&#10003;</div>Parent / guardian ID proof</div>
+    </div>
+
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Online enquiry form</div></div>
+    <div class="card" style="max-width:680px;">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Student's full name</label><input class="form-input" type="text" placeholder="Enter full name"></div>
+        <div class="form-group"><label class="form-label">Date of birth</label><input class="form-input" type="date"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Applying for class</label>
+          <select class="form-input"><option>Nursery</option><option>KG</option><option>Class I</option><option>Class II</option><option>Class III</option><option>Class IV</option><option>Class V</option><option>Class VI</option><option>Class VII</option><option>Class VIII</option><option>Class IX</option><option>Class X</option><option>Class XI</option><option>Class XII</option></select>
+        </div>
+        <div class="form-group"><label class="form-label">Parent / guardian name</label><input class="form-input" type="text" placeholder="Enter name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Mobile number</label><input class="form-input" type="tel" placeholder="+91-XXXXXXXXXX"></div>
+        <div class="form-group"><label class="form-label">Email address</label><input class="form-input" type="email" placeholder="email@example.com"></div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px;"><label class="form-label">Additional message</label><textarea class="form-input form-textarea" placeholder="Write your query here..."></textarea></div>
+      <button class="submit-btn" onclick="submitAdm()">Submit enquiry &#x2192;</button>
+      <div class="success-toast" id="adm-ok">&#x2705; Thank you! Your enquiry has been submitted. Our admissions team will contact you within 2 working days.</div>
+    </div>
+  </div>
+  <footer><strong>Admissions helpline:</strong> +91-180-2647XXX (Ext. 105) &nbsp;·&nbsp; admissions@jindalschoolpanipat.edu.in &nbsp;·&nbsp; Mon–Sat, 9 AM – 3 PM</footer>
+</div>
+
+<!-- ========== FEES ========== -->
+<div id="page-fees" class="page">
+  <div class="hero" style="padding:3.5rem 3rem 3rem;">
+    <div class="hero-deco"></div>
+    <div class="hero-eyebrow"><span></span>Session 2026–27</div>
+    <h1 style="font-size:38px;">Fee <em>Structure</em></h1>
+    <p>Transparent and affordable pricing for quality education. No hidden charges.</p>
+  </div>
+
+  <div class="section">
+    <div class="tab-row" id="fee-tabs">
+      <button class="tab-pill active" onclick="showFee('tuition',this)">Tuition fees</button>
+      <button class="tab-pill" onclick="showFee('transport',this)">Transport</button>
+      <button class="tab-pill" onclick="showFee('hostel',this)">Hostel</button>
+      <button class="tab-pill" onclick="showFee('other',this)">Other charges</button>
+    </div>
+
+    <div id="fee-tuition">
+      <div class="fee-wrap">
+        <table class="fee-table">
+          <thead><tr><th>Class</th><th>Tuition (per month)</th><th>Annual charges</th><th>Total (annual)</th></tr></thead>
+          <tbody>
+            <tr><td>Nursery – KG</td><td>&#8377;1,200</td><td>&#8377;4,000</td><td>&#8377;18,400</td></tr>
+            <tr><td>Class I – II</td><td>&#8377;1,500</td><td>&#8377;5,000</td><td>&#8377;23,000</td></tr>
+            <tr><td>Class III – V</td><td>&#8377;1,800</td><td>&#8377;5,500</td><td>&#8377;27,100</td></tr>
+            <tr><td>Class VI – VIII</td><td>&#8377;2,200</td><td>&#8377;6,500</td><td>&#8377;32,900</td></tr>
+            <tr><td>Class IX – X</td><td>&#8377;2,800</td><td>&#8377;8,000</td><td>&#8377;41,600</td></tr>
+            <tr><td>Class XI – XII (Science)</td><td>&#8377;3,500</td><td>&#8377;10,000</td><td>&#8377;52,000</td></tr>
+            <tr><td>Class XI – XII (Commerce)</td><td>&#8377;3,000</td><td>&#8377;9,000</td><td>&#8377;45,000</td></tr>
+            <tr><td>Class XI – XII (Arts)</td><td>&#8377;2,600</td><td>&#8377;8,000</td><td>&#8377;39,200</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fee-note">&#8505; Annual charges include exam fees, library, sports, and activity fees. Tuition fee is collected quarterly.</p>
+    </div>
+
+    <div id="fee-transport" style="display:none;">
+      <div class="fee-wrap">
+        <table class="fee-table">
+          <thead><tr><th>Route / Zone</th><th>Distance</th><th>Monthly fee</th></tr></thead>
+          <tbody>
+            <tr><td>Zone A — within city</td><td>Up to 5 km</td><td>&#8377;800</td></tr>
+            <tr><td>Zone B — suburban</td><td>5 – 10 km</td><td>&#8377;1,100</td></tr>
+            <tr><td>Zone C — outskirts</td><td>10 – 20 km</td><td>&#8377;1,500</td></tr>
+            <tr><td>Zone D — distant villages</td><td>20+ km</td><td>&#8377;1,900</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fee-note">&#8505; Transport fee includes pick-up and drop. GPS-tracked, AC buses. Fee collected half-yearly in advance.</p>
+    </div>
+
+    <div id="fee-hostel" style="display:none;">
+      <div class="fee-wrap">
+        <table class="fee-table">
+          <thead><tr><th>Hostel type</th><th>Per month</th><th>Annual (10 months)</th></tr></thead>
+          <tbody>
+            <tr><td>Boys hostel — 4-seater room</td><td>&#8377;5,500</td><td>&#8377;55,000</td></tr>
+            <tr><td>Boys hostel — 2-seater room</td><td>&#8377;7,500</td><td>&#8377;75,000</td></tr>
+            <tr><td>Girls hostel — 4-seater room</td><td>&#8377;5,500</td><td>&#8377;55,000</td></tr>
+            <tr><td>Girls hostel — 2-seater room</td><td>&#8377;7,500</td><td>&#8377;75,000</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fee-note">&#8505; Hostel fee includes lodging, 3 meals + snacks, laundry, and Wi-Fi. 24x7 security and CCTV surveillance.</p>
+    </div>
+
+    <div id="fee-other" style="display:none;">
+      <div class="fee-wrap">
+        <table class="fee-table">
+          <thead><tr><th>Charge type</th><th>Amount</th><th>Frequency</th></tr></thead>
+          <tbody>
+            <tr><td>Admission / registration fee</td><td>&#8377;2,500</td><td>One-time</td></tr>
+            <tr><td>Security deposit (refundable)</td><td>&#8377;5,000</td><td>One-time</td></tr>
+            <tr><td>Uniform (full set)</td><td>&#8377;2,200</td><td>One-time / as needed</td></tr>
+            <tr><td>Books & stationery</td><td>&#8377;2,000 – &#8377;5,000</td><td>Annual</td></tr>
+            <tr><td>Smart class / lab charges</td><td>&#8377;500</td><td>Monthly</td></tr>
+            <tr><td>Late fee (after due date)</td><td>&#8377;100/day</td><td>As applicable</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fee-note">&#8505; Sibling concession: 10% on tuition for 2nd child, 15% for 3rd child onwards. SC/ST students may be eligible for state scholarship — contact the office for details.</p>
+    </div>
+  </div>
+  <footer><strong>Fee payment:</strong> Cash / DD / NEFT / UPI &nbsp;·&nbsp; Accounts office: Mon–Fri, 9 AM – 2 PM &nbsp;·&nbsp; accounts@jindalschoolpanipat.edu.in</footer>
+</div>
+
+<!-- ========== CONTACT ========== -->
+<div id="page-contact" class="page">
+  <div class="hero" style="padding:3.5rem 3rem 3rem;">
+    <div class="hero-deco"></div>
+    <div class="hero-eyebrow"><span></span>We're here to help</div>
+    <h1 style="font-size:38px;">Get in <em>touch</em></h1>
+    <p>Have a question? Drop by our office or send us a message — we respond promptly.</p>
+  </div>
+
+  <div class="section">
+    <div class="cinfo-grid">
+      <div class="cinfo"><div class="cinfo-icon">&#x1F4CD;</div><div class="cinfo-label">Address</div><div class="cinfo-val">GT Road, Near Bus Stand<br>Panipat, Haryana 132103</div></div>
+      <div class="cinfo"><div class="cinfo-icon">&#x1F4DE;</div><div class="cinfo-label">Phone</div><div class="cinfo-val">+91 78359-73315<br>+91 93065-61533 (Alt.)</div></div>
+      <div class="cinfo"><div class="cinfo-icon">&#x2709;</div><div class="cinfo-label">Email</div><div class="cinfo-val">info@jindalschool.in</div></div>
+      <div class="cinfo"><div class="cinfo-icon">&#x23F0;</div><div class="cinfo-label">Office hours</div><div class="cinfo-val">Monday – Saturday<br>8:00 AM – 3:00 PM</div></div>
+    </div>
+
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Department directory</div></div>
+    <div class="card" style="margin-bottom:2rem;padding:0;overflow:hidden;">
+      <table class="dir-table" style="width:100%;">
+        <thead><tr><th>Department</th><th>Extension</th><th>Email</th></tr></thead>
+        <tbody>
+          <tr><td>Principal's office</td><td>101</td><td style="color:var(--red);">principal@jindalschoolpanipat.edu.in</td></tr>
+          <tr><td>Admissions</td><td>105</td><td style="color:var(--red);">admissions@jindalschoolpanipat.edu.in</td></tr>
+          <tr><td>Accounts / fees</td><td>108</td><td style="color:var(--red);">accounts@jindalschoolpanipat.edu.in</td></tr>
+          <tr><td>Transport</td><td>112</td><td style="color:var(--red);">transport@jindalschoolpanipat.edu.in</td></tr>
+          <tr><td>Hostel warden</td><td>115</td><td style="color:var(--red);">hostel@jindalschoolpanipat.edu.in</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sec-header"><div class="sec-line"></div><div class="sec-title">Send us a message</div></div>
+    <div class="card" style="max-width:680px;">
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" placeholder="Full name"></div>
+        <div class="form-group"><label class="form-label">Phone number</label><input class="form-input" type="tel" placeholder="+91-XXXXXXXXXX"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="email@example.com"></div>
+        <div class="form-group"><label class="form-label">Subject</label>
+          <select class="form-input"><option>General enquiry</option><option>Admissions</option><option>Fee related</option><option>Transport</option><option>Hostel</option><option>Academic</option><option>Complaint / feedback</option></select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px;"><label class="form-label">Message</label><textarea class="form-input form-textarea" placeholder="Write your message here..."></textarea></div>
+      <button class="submit-btn" onclick="submitContact()">Send message &#x2192;</button>
+      <div class="success-toast" id="contact-ok">&#x2705; Your message has been sent! We will respond within 1–2 working days.</div>
+    </div>
+  </div>
+  <footer><strong>Jindal Senior Secondary School</strong> &nbsp;·&nbsp; GT Road, Panipat, Haryana 132103 &nbsp;·&nbsp; info@jindalschoolpanipat.edu.in &nbsp;·&nbsp; +91-180-2647XXX</footer>
+</div>
+
+<script>
+const facultyData=[
+  {init:'AM',name:'Mr.Sandeep sir ',role:'Physics teacher',dept:'science',qual:'M.Sc Physics, B.Ed',exp:'15 yrs'},
+  {init:'PG',name:'Mr. Jagdish Gupta',role:'Chemistry teacher',dept:'science',qual:'M.Sc Chemistry, B.Ed',exp:'11 yrs'},
+  {init:'NK',name:'Mr. Nitin Kaushik',role:'Biology teacher',dept:'science',qual:'M.Sc Biology, B.Ed',exp:'9 yrs'},
+  {init:'SV',name:'Mrs. Sunita Verma',role:'Mathematics teacher',dept:'maths',qual:'M.Sc Maths, B.Ed',exp:'18 yrs'},
+  {init:'RA',name:'Mr. Rohit Arora',role:'Mathematics teacher',dept:'maths',qual:'M.Sc Maths, M.Ed',exp:'12 yrs'},
+  {init:'MS',name:'Mrs. Meena Saini',role:'English teacher',dept:'arts',qual:'M.A English, B.Ed',exp:'14 yrs'},
+  {init:'DT',name:'Mr. Deepak Tyagi',role:'History & civics',dept:'arts',qual:'M.A History, B.Ed',exp:'10 yrs'},
+  {init:'RN',name:'Mrs. Rekha Nanda',role:'Geography teacher',dept:'arts',qual:'M.A Geography, B.Ed',exp:'8 yrs'},
+  {init:'VB',name:'Mr. Vikas Bansal',role:'Accountancy teacher',dept:'commerce',qual:'M.Com, B.Ed',exp:'13 yrs'},
+  {init:'KJ',name:'Mrs. Kavita Joshi',role:'Business studies',dept:'commerce',qual:'MBA, B.Ed',exp:'7 yrs'},
+  {init:'PS',name:'Mrs. Pooja Singh',role:'Primary class teacher',dept:'primary',qual:'B.Ed, Diploma (Montessori)',exp:'6 yrs'},
+  {init:'AS',name:'Mrs. Anjali Sharma',role:'Primary class teacher',dept:'primary',qual:'B.El.Ed',exp:'9 yrs'},
+];
+
+function renderFaculty(dept){
+  const grid=document.getElementById('faculty-grid');
+  const list=dept==='all'?facultyData:facultyData.filter(f=>f.dept===dept);
+  grid.innerHTML=list.map(f=>`
+    <div class="fac-card">
+      <div class="fac-top">
+        <div class="fac-avatar">${f.init}</div>
+        <div><div class="fac-name">${f.name}</div><div class="fac-role">${f.role}</div></div>
+      </div>
+      <div><span class="fac-qual">${f.qual}</span></div>
+      <div class="fac-exp">${f.exp} experience</div>
+      <div class="fac-mail">&#9993; ${f.init.toLowerCase()}@jindalschoolpanipat.edu.in</div>
+    </div>
+  `).join('');
+}
+
+function filterDept(dept,btn){
+  document.querySelectorAll('#dept-tabs .tab-pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderFaculty(dept);
+}
+
+
+
+function showPage(id,btn){
+
+  document
+  .querySelectorAll('.page')
+  .forEach(p=>p.classList.remove('active'));
+
+  document
+  .querySelectorAll('.nav-btn')
+  .forEach(b=>b.classList.remove('active'));
+
+  const page =
+  document.getElementById(
+  'page-'+id
+  );
+
+  if(page){
+    page.classList.add('active');
+  }
+
+  if(btn){
+    btn.classList.add('active');
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+}
+function animateCounters(){
+  document.querySelectorAll('.hstat-num[data-target]').forEach(el=>{
+    const target=+el.getAttribute('data-target');
+    const suffix=el.getAttribute('data-suffix')||'';
+    const duration=1800;
+    const steps=60;
+    const increment=target/steps;
+    let current=0;
+    const timer=setInterval(()=>{
+      current+=increment;
+      if(current>=target){
+        current=target;
+        clearInterval(timer);
+      }
+      el.textContent=Math.floor(current)+suffix;
+    },duration/steps);
+  });
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  animateCounters();
+  renderFaculty('all');
+});
+function showFee(type,btn){
+
+  ['tuition','transport','hostel','other']
+  .forEach(t=>{
+
+    document.getElementById(
+      'fee-'+t
+    ).style.display =
+    t===type ? 'block' : 'none';
+
+  });
+
+  document
+  .querySelectorAll('#fee-tabs .tab-pill')
+  .forEach(b=>b.classList.remove('active'));
+
+  btn.classList.add('active');
+}
+</script>
+<!-- ========== JARVIS FLOATING CHATBOT - SIMPLE & WORKING ========== -->
+
+<style>
+/* Floating Chatbot Styles */
+.jarvis-chatbot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Chat Button */
+.jarvis-btn {
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, #00d4ff, #0066aa);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  animation: pulse 2s infinite;
+}
+
+.jarvis-btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0,212,255,0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(0,212,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,212,255,0); }
+}
+
+/* Chat Window */
+.jarvis-window {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 380px;
+  height: 500px;
+  background: #0a0a0a;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #00d4ff;
+}
+
+.jarvis-window.active {
+  display: flex;
+}
+
+/* Header */
+.jarvis-header {
+  background: linear-gradient(135deg, #00d4ff, #0066aa);
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.jarvis-header h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.jarvis-header h4 i {
+  margin-right: 8px;
+}
+
+.jarvis-header .close-chat {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Action Icons in Header */
+.jarvis-actions {
+  display: flex;
+  gap: 10px;
+  margin-right: 10px;
+}
+
+.jarvis-actions button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.jarvis-actions button.whatsapp:hover {
+  background: #25D366;
+}
+
+.jarvis-actions button.call:hover {
+  background: #3b82f6;
+}
+
+/* Messages Area */
+.jarvis-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #1a1a2e;
+}
+
+/* Message Bubbles */
+.jarvis-ai-msg {
+  align-self: flex-start;
+  background: #0f3460;
+  color: #00d4ff;
+  padding: 10px 14px;
+  border-radius: 18px;
+  max-width: 85%;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  border-bottom-left-radius: 4px;
+  font-family: monospace;
+}
+
+.jarvis-user-msg {
+  align-self: flex-end;
+  background: #00d4ff;
+  color: #0a0a0a;
+  padding: 10px 14px;
+  border-radius: 18px;
+  max-width: 85%;
+  font-size: 0.85rem;
+  border-bottom-right-radius: 4px;
+}
+
+/* Input Area */
+.jarvis-input-area {
+  display: flex;
+  padding: 12px;
+  background: #0a0a0a;
+  gap: 10px;
+  border-top: 1px solid #333;
+}
+
+.jarvis-input-area input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  background: #2a2a3e;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.jarvis-input-area input::placeholder {
+  color: #888;
+}
+
+.jarvis-input-area button {
+  background: #00d4ff;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #0a0a0a;
+  font-size: 1rem;
+}
+
+/* Typing Indicator */
+.typing {
+  align-self: flex-start;
+  background: #0f3460;
+  padding: 8px 14px;
+  border-radius: 18px;
+  color: #00d4ff;
+  font-size: 0.8rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .jarvis-window {
+    width: 340px;
+    height: 480px;
+    right: 10px;
+    bottom: 80px;
+  }
+  .jarvis-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+}
+<style>
+  /* FORCE LIGHT BLUE THEME ON VERCEL */
+  body, .page, .hero, .quickbar, .jarvis-window, .jarvis-messages {
+    background-color: #e0f2fe !important;
+  }
+  .principal-card, .fac-card, .card, .news-card, .step-card {
+    background-color: #ffffff !important;
+  }
+  .hero, .quickbar {
+    background-color: #bae6fd !important;
+  }
+  .jarvis-ai-msg {
+    background-color: #bae6fd !important;
+    color: #0f1e3d !important;
+  }
+
+</style>
+
+<!-- Chatbot HTML -->
+<div class="jarvis-chatbot">
+  <!-- Chat Button -->
+  <button class="jarvis-btn" id="jarvisToggleBtn">
+    <i class="fas fa-microchip"></i>
+  </button>
+  
+  <!-- Chat Window -->
+  <div class="jarvis-window" id="jarvisWindow">
+    <div class="jarvis-header">
+      <h4><i class="fas fa-robot"></i> JARVIS</h4>
+      <div class="jarvis-actions">
+        <button class="whatsapp" id="jarvisWhatsappBtn" title="WhatsApp"><i class="fab fa-whatsapp"></i></button>
+        <button class="call" id="jarvisCallBtn" title="Call"><i class="fas fa-phone-alt"></i></button>
+        <button class="close-chat" id="jarvisCloseBtn">✕</button>
+      </div>
+    </div>
+    
+    <div class="jarvis-messages" id="jarvisMessages">
+      <div class="jarvis-ai-msg">🔷 Hi, I am JARVIS, your AI assistant. How may I help you? 🔷</div>
+    </div>
+    
+    <div class="jarvis-input-area">
+      <input type="text" id="jarvisInput" placeholder="Ask me anything..." autocomplete="off">
+      <button id="jarvisSendBtn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Font Awesome
+if(!document.querySelector('link[href*="font-awesome"]')) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+  document.head.appendChild(link);
+}
+
+// ========== JARVIS KNOWLEDGE BASE ==========
+const WHATSAPP_NUMBER = "917835973315";
+const PHONE_NUMBER = "+917835973315";
+
+// School Information Database
+const SCHOOL_INFO = {
+  // Principal
+  "principal": "Dr. Rajesh Kumar",
+  "principal name": "Dr. Rajesh Kumar",
+  "principal ka naam": "Dr. Rajesh Kumar",
+  "headmaster": "Dr. Rajesh Kumar",
+  "principal photo": "principal.jpg",
+  // School Name
+  "school name": "Jindal Senior Secondary School",
+  "name": "Jindal Senior Secondary School",
+  
+  // Contact
+  "contact": "7835973315",
+  "phone": "7835973315",
+  "number": "7835973315",
+  "mobile": "7835973315",
+  "whatsapp": "7835973315",
+
+  
+  // Address
+  "address": "Sector 15, Hisar Road, Jind, Haryana - 126102",
+  "location": "Sector 15, Hisar Road, Jind, Haryana",
+  
+  // Timings
+  "timings": "8:00 AM to 2:00 PM (Monday to Friday)",
+  "time": "8:00 AM to 2:00 PM",
+  "hours": "8:00 AM to 2:00 PM",
+  
+  // Email
+  "email": "info@jindalschool.edu.in",
+  "mail": "info@jindalschool.edu.in",
+  
+  // Other Info
+  "established": "1995",
+  "established year": "1995",
+  "affiliation": "CBSE Board",
+  "board": "CBSE",
+  "classes": "Nursery to 12th",
+  "class": "Nursery to 12th"
+};
+
+// Keywords mapping for better matching
+const KEYWORDS = {
+  principal: ["principal", "principal name", "headmaster", "director", "principal ka naam"],
+  name: ["school name", "name of school", "school ka naam"],
+  contact: ["contact", "phone", "number", "mobile", "phone number", "contact number"],
+  address: ["address", "location", "pata", "where is"],
+  timings: ["timing", "time", "hours", "school time", "open", "close"],
+  email: ["email", "mail", "e-mail"],
+  established: ["established", "founded", "established year"],
+  affiliation: ["affiliation", "board", "cbse"],
+  classes: ["classes", "class", "grades", "standard"]
+};
+
+function getAnswer(question) {
+  const lowerQ = question.toLowerCase();
+  console.log("JARVIS Question:", lowerQ);
+  // PRINCIPAL PHOTO CHECK
+  if(lowerQ.includes("principal") || lowerQ.includes("headmaster") || lowerQ.includes("principal.jpg") || lowerQ.includes("principal.jpg")) {
+    return `🔍 <div class="principal-card">
+      <img src="principal.jpg" class="principal-img" onerror="this.src='https://via.placeholder.com/80'">
+      <div class="principal-details">
+        <h4>Dr. Rajesh Kumar</h4>
+        <p>Principal, Jindal Senior Secondary School</p>
+      </div>
+    </div>`;
+  }
+  
+  // Check via keywords mapping
+  for(let [category, keywords] of Object.entries(KEYWORDS)) {
+    for(let keyword of keywords) {
+      if(lowerQ.includes(keyword)) {
+        // Find the actual answer
+        for(let [infoKey, infoValue] of Object.entries(SCHOOL_INFO)) {
+          if(infoKey === category || infoKey.includes(category)) {
+            return `🔍 ${infoValue}`;
+          }
+        }
+        // Fallback for each category
+        if(category === "principal") return `🔍 Principal: ${SCHOOL_INFO.principal}`;
+        if(category === "name") return `🔍 School Name: ${SCHOOL_INFO["school name"]}`;
+        if(category === "contact") return `🔍 Contact Number: ${SCHOOL_INFO.contact}`;
+        if(category === "address") return `🔍 Address: ${SCHOOL_INFO.address}`;
+        if(category === "timings") return `🔍 School Timings: ${SCHOOL_INFO.timings}`;
+        if(category === "email") return `🔍 Email: ${SCHOOL_INFO.email}`;
+        if(category === "established") return `🔍 Established Year: ${SCHOOL_INFO.established}`;
+        if(category === "affiliation") return `🔍 Affiliation: ${SCHOOL_INFO.affiliation}`;
+        if(category === "classes") return `🔍 Classes Available: ${SCHOOL_INFO.classes}`;
+      }
+    }
+  }
+  
+  // Direct check in SCHOOL_INFO
+  for(let [key, value] of Object.entries(SCHOOL_INFO)) {
+    if(lowerQ.includes(key.toLowerCase())) {
+      return `🔍 ${key}: ${value}`;
+    }
+  }
+  
+  // If nothing found
+  return `❓ I couldn't find information about "${question}".
+
+💡 Try asking me:
+• Who is the principal?
+• What is the school name?
+• Contact number?
+• School address?
+• School timings?
+• Email address?
+• Which classes are available?`;
+}
+
+// Chat functions
+const messagesDiv = document.getElementById('jarvisMessages');
+const input = document.getElementById('jarvisInput');
+const sendBtn = document.getElementById('jarvisSendBtn');
+const toggleBtn = document.getElementById('jarvisToggleBtn');
+const closeBtn = document.getElementById('jarvisCloseBtn');
+const whatsappBtn = document.getElementById('jarvisWhatsappBtn');
+const callBtn = document.getElementById('jarvisCallBtn');
+const windowDiv = document.getElementById('jarvisWindow');
+
+function addMessage(text, isUser = false) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = isUser ? 'jarvis-user-msg' : 'jarvis-ai-msg';
+  msgDiv.innerHTML = isUser ? `👤 ${text}` : `🤖 ${text}`;
+  messagesDiv.appendChild(msgDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function showTyping() {
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'typing';
+  typingDiv.innerHTML = '🔷 JARVIS is thinking...';
+  typingDiv.id = 'jarvisTyping';
+  messagesDiv.appendChild(typingDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function hideTyping() {
+  const typing = document.getElementById('jarvisTyping');
+  if(typing) typing.remove();
+}
+
+function handleUserMessage() {
+  const question = input.value.trim();
+  if(!question) return;
+  
+  addMessage(question, true);
+  input.value = '';
+  
+  showTyping();
+  
+  setTimeout(() => {
+    hideTyping();
+    const answer = getAnswer(question);
+    addMessage(answer, false);
+  }, 600);
+}
+
+// WhatsApp
+function openWhatsApp() {
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}`, '_blank');
+  addMessage("📱 Opening WhatsApp...", false);
+}
+
+// Call
+function makeCall() {
+  window.location.href = `tel:${PHONE_NUMBER}`;
+  addMessage(`📞 Calling ${PHONE_NUMBER}...`, false);
+}
+
+// Toggle Window
+function toggleWindow() {
+  if(windowDiv.classList.contains('active')) {
+    windowDiv.classList.remove('active');
+  } else {
+    windowDiv.classList.add('active');
+  }
+}
+
+function closeWindow() {
+  windowDiv.classList.remove('active');
+}
+
+// Event Listeners
+sendBtn.addEventListener('click', handleUserMessage);
+toggleBtn.addEventListener('click', toggleWindow);
+closeBtn.addEventListener('click', closeWindow);
+whatsappBtn.addEventListener('click', openWhatsApp);
+callBtn.addEventListener('click', makeCall);
+input.addEventListener('keypress', (e) => {
+  if(e.key === 'Enter') handleUserMessage();
+});
+
+console.log("✅ JARVIS Floating Chatbot Activated!");
+console.log("📞 Phone:", PHONE_NUMBER);
+</script>
+</body>
+</html>
